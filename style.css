@@ -1,19 +1,18 @@
 *{
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
 body{
     background: #111;
-    display: grid; /* divide o espaço da tela em linhas e colunas */
-    place-items: center; /* defini como os itens devem ser alinhados */
-    height: 100vh;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;   
 }
 
 h1{
-    font-weight: bold; /* Negrito */
-    margin: 0; 
+    font-weight: bold;
+    margin: 0;
 }
 
 p{
@@ -35,14 +34,15 @@ button{
     color: #ffffff;
     font-size: 12px;
     font-weight: bold;
-    padding: 1em, 5em;
+    padding: 1em 5em;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
     cursor: pointer;
+    z-index: 1000;
 }
 
 button:active{
-    transform:  scale(0.95);
+    transform: scale(0.95);
 }
 
 button:focus{
@@ -50,7 +50,7 @@ button:focus{
 }
 
 form{
-    background-color: #1111;
+    background-color: #111;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,22 +58,16 @@ form{
     padding: 0.50px;
     height: 100%;
     text-align: center;
+    min-height:80vh;
 }
 
-input{
+input .form-control{
     background-color: #eee;
     border: none;
     font-size: 16px;
-    padding: 10px, 12px;
-    margin: 8px, 0;
-    width: 100%;
-}
-
-a{
-    color: #333;
-    font-size: 14px;
-    text-decoration: none;
+    padding: 101px 12px;
     margin: 15px 0;
+    width: 100%;    
 }
 
 button.ghost{
@@ -81,16 +75,17 @@ button.ghost{
     border-color: #ffffff;
 }
 
+
 .container{
-    background-color: #fff;
+    z-index: 1;
+    background-color: #111;
+    color: white;
     border-radius: 2em;
-    box-shadow:  0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
     width: 650px;
     max-width: 100%;
     min-height: 550px;
-    display: flex;
 }
 
 .form-container{
@@ -100,37 +95,36 @@ button.ghost{
     transition: all 0.6s ease-in-out;
 }
 
-.sing-in-container{
+.sign-in-container{
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.sing-up-container{
+.sign-up-container{
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
-.container.right-painel-active .sing-in-container{
+.container.right-painel-active .sign-in-container{
     transform: translateX(100%);
 }
 
-.container.right-painel-active .sing-up-container{
+.container.right-painel-active .sign-up-container{
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
     animation: show 0.6s;
-}
-
-
+}   
 
 @keyframes show{
     0%, 49.99%{
         opacity: 0;
         z-index: 1;
     }
+
     50%, 100%{
         opacity: 1;
         z-index: 5;
@@ -149,11 +143,9 @@ button.ghost{
     transform: translateX(0);
 }
 
-.container.right-painel-active .overlay-left{
+.container.right-painel-active .overlay-right{
     transform: translateX(20%);
 }
-
-
 
 
 .overlay-container{
@@ -169,8 +161,9 @@ button.ghost{
 
 .overlay{
     background: #168aad;
-    background: -webkit-linear-gradient(20deg, #1f1f1fce, #1f1f1f);
-    background: linear-gradient(0deg, #1f1f1fce, #1f1f1f);
+    background: -webkit-linear-gradient(20deg, #43a0a4,
+    #168aad);
+    background: linear-gradient(0deg, #43a0a4, #168aad);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -199,7 +192,7 @@ button.ghost{
 }
 
 .overlay-left{
-    transform: translateX(-20%);
+    transform: translateX(0);
 }
 
 .overlay-right{
@@ -208,7 +201,7 @@ button.ghost{
 }
 
 .box{
-    z-index: -10;
+    z-index: -100;
     position: relative;
     background-color: #111;
     display: flex;
@@ -242,4 +235,5 @@ button.ghost{
         background-position: 300%;
 
     }
-}
+} 
+ 
